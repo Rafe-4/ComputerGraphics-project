@@ -1,0 +1,26 @@
+\#include <GL/glut.h>
+float x= -1;
+void display(){
+glClear(GL_COLOR_BUFFER_BIT);
+glColor3f(1,0,0);
+glBegin(GL_QUADS);
+glVertex2f(x,-0.1);
+glVertex2f(x+0.2,-0.1);
+glVertex2f(x+0.2,0.1);
+glVertex2f(x,0.1);
+glEnd();
+glutSwapBuffers();
+}void update(int){
+x+=0.01;
+if(x>1) x=-1;
+glutPostRedisplay();
+glutTimerFunc(16,update,0);
+}
+int main(int argc,char** argv){
+glutInit(&argc,argv);
+glutInitDisplayMode(GLUT_DOUBLE);
+glutCreateWindow("Animation");
+glutDisplayFunc(display);
+glutTimerFunc(0,update,0);
+glutMainLoop();
+}

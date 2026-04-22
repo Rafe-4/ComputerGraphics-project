@@ -1,0 +1,16 @@
+#include <GL/glut.h>
+void display(){
+glClear(GL_COLOR_BUFFER_BIT);
+glColor3f(0.2,0.2,0.2);
+glBegin(GL_QUADS);
+glVertex2f(-1,-0.5);
+glVertex2f(1,-0.5);
+glVertex2f(1,-1);
+glVertex2f(-1,-1);
+glEnd();
+glFlush();}
+int main(int argc,char** argv){
+glutInit(&argc,argv);
+glutCreateWindow("Road");
+glutDisplayFunc(display);
+glutMainLoop();
