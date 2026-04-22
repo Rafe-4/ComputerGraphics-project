@@ -1,0 +1,14 @@
+#include <windows.h>
+#include <mmsystem.h>
+#include <GL/glut.h>
+void display(){
+glClear(GL_COLOR_BUFFER_BIT);
+glFlush();
+}
+int main(int argc,char** argv){
+glutInit(&argc,argv);
+glutCreateWindow("Sound Demo");
+PlaySound("sound.wav", NULL, SND_ASYNC | SND_FILENAME);
+glutDisplayFunc(display);
+glutMainLoop();
+}
